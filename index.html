@@ -7,12 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
     <link rel="stylesheet" href="css/style.css">
+    <script>
+        if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia(
+                '(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark')
+        } else {
+            document.documentElement.classList.remove('dark')
+        }
+    </script>
     <title> tailwind portofolio </title>
 </head>
 
 <body>
     <!-- navbar -->
-    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-10">
+    <header class="bg-transparent absolute top-0 left-0 w-full flex items-center z-20">
         <div class="container">
             <div class="flex items-center justify-between relative">
                 <div class="px-8">
@@ -26,29 +34,45 @@
                     </button>
 
                     <nav id="nav-menu"
-                        class="hidden absolute py-3 bg-white shadow-lg rounded-lg max-w-[180px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
+                        class=" dark:bg-dark dark:shadow-slate-800 lg:dark:bg-transparent hidden absolute py-3 bg-white shadow-lg rounded-lg max-w-[180px] w-full right-4 top-full lg:block lg:static lg:bg-transparent lg:max-w-full lg:shadow-none lg:rounded-none">
                         <ul class="block lg:flex">
                             <li class="group">
                                 <a href="#home"
-                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary">beranda</a>
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white">beranda</a>
                             </li>
                             <li class="group">
                                 <a href="#about"
-                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary">about
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white">about
                                     me</a>
                             </li>
                             <li class="group">
                                 <a href="#portofolio"
-                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary">portofolio</a>
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white">portofolio</a>
                             </li>
                             <li class="group">
                                 <a href="#clients"
-                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary">clients</a>
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white">clients</a>
                             </li>
 
                             <li class="group">
                                 <a href="#contact"
-                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary">contact</a>
+                                    class="text-base text-dark py-2 mx-5 flex group-hover:text-primary dark:text-white">contact</a>
+                            </li>
+                            <li class="mt-2 lg:mt-0 flex items-center pl-3">
+                                <div class="flex">
+                                    <span class="mr-2 text-sm text-slate-500">light</span>
+                                    <input type="checkbox" class="hidden" id="dark-toggle">
+                                    <label for="dark-toggle">
+                                        <div
+                                            class="flex h-5 w-9 cursor-pointer items-center rounded-full p-1 bg-slate-500">
+                                            <div
+                                                class="toggle-circle h-4 w-4 rounded-full bg-white transition duration-300 ease-in-out">
+
+                                            </div>
+                                        </div>
+                                    </label>
+                                    <span class="ml-2 text-sm text-slate-500">dark</span>
+                                </div>
                             </li>
                         </ul>
                     </nav>
@@ -60,24 +84,25 @@
     <!-- navbar end -->
 
     <!-- hero section -->
-    <section id="home" class="pt-36 ">
+    <section id="home" class="pt-36 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full self-center px-4 md:w-1/2 lg:w-1/2">
                     <h1 class="text-base font-semibold text-primary md:text-xl">Halo semua✋, saya <span
-                            class="block font-bold text-dark text-2xl lg:text-3xl">Mochamad Ichsan NR</span></h1>
+                            class="block font-bold text-dark text-2xl lg:text-3xl dark:text-white">Mochamad Ichsan
+                            NR</span></h1>
                     <h2 class="font-medium text-slate-500 text-lg mb-5 lg:text-2xl">Junior programmer</h2>
                     <p class="font-medium text-slate-400 mb-10 leading-relaxed">Lorem ipsum dolor sit amet consectetur.
                     </p>
 
                     <a href="https://wa.me/qr/ZGCSGVTSQSMZM1" target="_blank"
-                        class="text-base font-semibold text-white bg-primary py-3 px-8 rounded-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Hubungi
+                        class="text-base font-semibold text-white bg-primary py-3 px-8 rou dark:text-whitended-full hover:shadow-lg hover:opacity-80 transition duration-300 ease-in-out">Hubungi
                         saya</a>
                 </div>
                 <div class="w-full self-end px-4 md:w-1/2 lg:w-1/2">
                     <div class="mt-10 relative lg:mt-0  lg:right-0">
-                        <img src="img/2.png" alt="san" class="max-w-full mx-auto">
-                        <span class="absolute -bottom-5 -z-10 left-1/2 -translate-x-1/2 md:scale-125 md:bottom-4"><svg
+                        <img src="img/2.png" alt="san" class="relative z-10 max-w-full mx-auto">
+                        <span class="absolute -bottom-5 left-1/2 -translate-x-1/2 md:scale-125 md:bottom-4"><svg
                                 height="200" width="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                                 <path fill="#14b8a6"
                                     d="M59.6,-57.7C75.4,-43.8,85.1,-21.9,84.8,-0.3C84.5,21.4,74.3,42.8,58.6,54.7C42.8,66.6,21.4,69,0.7,68.3C-20,67.6,-39.9,63.8,-53.6,51.8C-67.3,39.9,-74.8,20,-73.3,1.5C-71.8,-16.9,-61.3,-33.9,-47.6,-47.7C-33.9,-61.5,-16.9,-72.3,2.5,-74.8C21.9,-77.3,43.8,-71.5,59.6,-57.7Z"
@@ -91,12 +116,13 @@
     <!-- hero end -->
 
     <!-- About start -->
-    <section id="about" class="pt-36 pb-32">
+    <section id="about" class="pt-36 pb-32 dark:bg-dark">
         <div class="container">
             <div class="flex flex-wrap">
                 <div class="w-full px-4 mb-10 lg:w-1/2">
                     <h4 class="font-bold uppercase text-primary text-lg mb-1">About me</h4>
-                    <h2 class="font-bold text-dark text-3xl mb-5 max-w-sm lg:text-4xl">Lorem ipsum dolor sit amet.</h2>
+                    <h2 class="font-bold text-dark text-3xl mb-5 max-w-sm lg:text-4xl dark:text-white">Lorem ipsum dolor
+                        sit amet.</h2>
                     <p class="font-medium text-base text-secondary max-w-xl lg:text-lg">Lorem ipsum dolor sit amet
                         consectetur
                         adipisicing
@@ -104,15 +130,17 @@
                         architecto iure quos.</p>
                 </div>
                 <div class="w-full px-4 mb-10 lg:w-1/2">
-                    <h3 class="font-semibold text-slate-700 text-2xl mb-4 lg:text-3xl lg:pt-10">Contact</h3>
+                    <h3 class="font-semibold text-slate-700 text-2xl mb-4 lg:text-3xl lg:pt-10 dark:text-slate-100">
+                        Contact</h3>
                     <p class="font-medium text-base text-secondary mb-6 lg:text-lg">Lorem ipsum dolor sit amet
                         consectetur
                         adipisicing elit. Veniam suscipit quibusdam culpa optio a
                         quae et, corporis commodi.</p>
                     <div class="flex items-center">
                         <!-- ig -->
-                        <a href="https://www.instagram.com/m.ichsannr/" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
-                         hover:border-dark hover:bg-dark hover:text-white">
+                        <a href="https://www.instagram.com/m.ichsannr/" target="_blank"
+                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
+                         hover:border-dark hover:bg-dark hover:text-white hover:dark:border-slate-100 hover:dark:bg-white hover:dark:text-dark dark:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <title>Instagram</title>
@@ -121,8 +149,9 @@
                             </svg>
                         </a>
                         <!-- facebook -->
-                        <a href="https://www.facebook.com/sansan.squrepants/" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
-                         hover:border-dark hover:bg-dark hover:text-white">
+                        <a href="https://www.facebook.com/sansan.squrepants/" target="_blank"
+                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
+                         hover:border-dark hover:bg-dark hover:text-white hover:dark:border-slate-100 hover:dark:bg-white hove:dark:text-dark dark:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <title>Twitter</title>
@@ -131,8 +160,9 @@
                             </svg>
                         </a>
                         <!-- tiktok -->
-                        <a href="https://www.tiktok.com/@creaper001" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
-                        hover:border-dark hover:bg-dark hover:text-white">
+                        <a href="https://www.tiktok.com/@creaper001" target="_blank"
+                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
+                        hover:border-dark hover:bg-dark hover:text-white hover:dark:border-slate-100 hover:dark:bg-white hover:dark:text-dark dark:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <title>TikTok</title>
@@ -141,8 +171,9 @@
                             </svg>
                         </a>
                         <!-- yt -->
-                        <a href="https://www.youtube.com/channel/UCOzZUlwCTLLOm6CFd_PcN5A" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
-                        hover:border-dark hover:bg-dark hover:text-white">
+                        <a href="https://www.youtube.com/channel/UCOzZUlwCTLLOm6CFd_PcN5A" target="_blank"
+                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
+                        hover:border-dark hover:bg-dark hover:text-white hover:dark:border-slate-100 hover:dark:bg-white hover:dark:text-dark dark:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <title>YouTube</title>
@@ -151,8 +182,9 @@
                             </svg>
                         </a>
                         <!-- linkedin -->
-                        <a href="https://www.linkedin.com/in/moch-ichsan-b10086219/" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
-                        hover:border-dark hover:bg-dark hover:text-white">
+                        <a href="https://www.linkedin.com/in/moch-ichsan-b10086219/" target="_blank"
+                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
+                        hover:border-dark hover:bg-dark hover:text-white hover:dark:border-slate-100 hover:dark:bg-white hover:dark:text-dark dark:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <title>LinkedIn</title>
@@ -161,8 +193,9 @@
                             </svg>
                         </a>
                         <!-- wa -->
-                        <a href="https://wa.me/qr/ZGCSGVTSQSMZM1" target="_blank" class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
-                        hover:border-dark hover:bg-dark hover:text-white">
+                        <a href="https://wa.me/qr/ZGCSGVTSQSMZM1" target="_blank"
+                            class="w-9 h-9 mr-3 rounded-full flex justify-center items-center border border-slate-300
+                        hover:border-dark hover:bg-dark hover:text-white hover:dark:border-slate-100 hover:dark:bg-white hover:dark:text-dark dark:text-white">
                             <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <title>WhatsApp</title>
@@ -179,12 +212,13 @@
     <!-- about end -->
 
     <!-- portofolio start -->
-    <section id="portofolio" class="pt-36 pb-16 bg-slate-100">
+    <section id="portofolio" class="pt-36 pb-16 bg-slate-100 dark:bg-slate-800">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2 ">portofolio</h4>
-                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">My project</h2>
+                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl dark:text-white">My project
+                    </h2>
                     <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur,
                         adipisicing
                         elit. Blanditiis quo sit veniam cum
@@ -197,7 +231,8 @@
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="img/owl.png" alt="owl" width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">home page using owl carousel</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">home page using owl carousel
+                    </h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Quia nostrum incidunt placeat sit itaque!</p>
                 </div>
@@ -206,7 +241,8 @@
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="img/owl m.png" alt="owl m" width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Mobile home page using owl carousel</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Mobile home page using owl
+                        carousel</h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Quia nostrum incidunt placeat sit itaque!</p>
                 </div>
@@ -215,7 +251,7 @@
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="img/ldp.png" alt="ldp" width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Bootsrap Landing page</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Bootsrap Landing page</h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Quia nostrum incidunt placeat sit itaque!</p>
                 </div>
@@ -223,7 +259,8 @@
                     <div class="rounded-md shadow-md overflow-hidden">
                         <img src="img/ldp m.png" alt="ldp m" width="w-full">
                     </div>
-                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3">Mobile bootsrap landing page</h3>
+                    <h3 class="font-semibold text-xl text-dark mt-5 mb-3 dark:text-white">Mobile bootsrap landing page
+                    </h3>
                     <p class="font-medium text-base text-secondary">Lorem ipsum dolor sit amet consectetur adipisicing
                         elit. Quia nostrum incidunt placeat sit itaque!</p>
                 </div>
@@ -234,12 +271,13 @@
     <!-- porto end -->
 
     <!-- clien section -->
-    <section id="clients" class="pt-36 pb-32 bg-slate-600">
+    <section id="clients" class="pt-36 pb-32 bg-slate-600 dark:bg-slate-200">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2 ">Clients</h4>
-                    <h2 class="font-bold text-white text-2xl mb-4 sm:text-3xl lg:text-4xl">scope work</h2>
+                    <h2 class="font-bold text-white text-2xl mb-4 sm:text-3xl lg:text-4xl dark:text-dark">scope work
+                    </h2>
                     <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur,
                         adipisicing
                         elit. Blanditiis quo sit veniam cum
@@ -267,12 +305,13 @@
     <!-- client end -->
 
     <!-- contact start -->
-    <section id="contact" class="pt-36 pb-32">
+    <section id="contact" class="pt-36 pb-32 dark:bg-dark">
         <div class="container">
             <div class="w-full px-4">
                 <div class="max-w-xl mx-auto text-center mb-16">
                     <h4 class="font-semibold text-lg text-primary mb-2 ">Contact</h4>
-                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl">Hubungi kami</h2>
+                    <h2 class="font-bold text-dark text-2xl mb-4 sm:text-3xl lg:text-4xl dark:text-white">Hubungi kami
+                    </h2>
                     <p class="font-medium text-md text-secondary md:text-lg">Lorem ipsum dolor sit amet consectetur,
                         adipisicing
                         elit. Blanditiis quo sit veniam cum
@@ -429,6 +468,14 @@
         </div>
     </footer>
     <!-- footer end -->
+
+    <!-- back to top -->
+    <a href="#home"
+        class="fixed hidden justify-center items-center z-[9999] bottom-4 right-4 h-12 w-12 bg-primary rounded-full p-4 hover:animate-pulse"
+        id="to-top">
+        <span class="block w-4 h-4 border-t-2 border-l-2 rotate-45 mt-2"></span>
+    </a>
+    <!-- end -->
 
     <script src="js/script.js"></script>
 </body>
